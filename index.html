@@ -59,6 +59,7 @@
                         <th>Descrição</th>
                         <th>Valor</th>
                         <th>Data</th>
+                        <th>Categoria</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -98,6 +99,17 @@
                         />
                         <small class="help">Use o sinal "-" (Negativo) para despesas e "," (Vírgula) para casas decimais.</small>
                     </div>
+                    <div class="input-group">
+                        <select 
+                            class="category" 
+                            id="category">
+                            <option value="">Selecione uma Categoria</option>
+                            <option value="casa">Casa</option>
+                            <option value="comida">Comida</option>
+                            <option value="lazer">Lazer</option>
+                            <option value="outros">Outros</option>
+                          </select>
+                    </div>
 
                     <div class="input-group">
                         <label 
@@ -124,7 +136,10 @@
     </div>
 
     <footer>
-        <p>dev.finance$</p>
+        <p>Daniel Farias</p>
+        
+        <a href="https://github.com/DanielFariias" target="_blank"><img src="/assets/github.png"></a>
+        
     </footer>
 
     <script src="./scripts.js"></script>

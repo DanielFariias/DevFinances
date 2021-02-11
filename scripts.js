@@ -81,11 +81,15 @@ const DOM = {
         const CSSclass = transaction.amount > 0 ? "income" : "expense"
 
         const amount = Utils.formatCurrency(transaction.amount)
-
+            // <td class="category">${transaction.category}</td>
         const html = `
             <td class="description">${transaction.description}</td>
             <td class="${CSSclass}">${amount}</td>
             <td class="date">${transaction.date}</td>
+            
+            <td class="category">
+            <img src="./assets/icon-${transaction.category}.png" alt="${transaction.category}">
+            </td>
             <td>
             <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação">
             </td>
@@ -121,7 +125,8 @@ const Utils = {
     },
 
     formatAmount(value) {
-        return Number(value) * 100
+        value = value * 100
+        return Math.round(value)
     },
     formatCurrency(value) {
         const signal = Number(value) < 0 ? "-" : ""
@@ -143,22 +148,25 @@ const Utils = {
 const Form = {
     description: document.querySelector('input#description'),
     amount: document.querySelector('input#amount'),
+    category: document.getElementById("category"),
     date: document.querySelector('input#date'),
 
     getValues() {
         return {
             description: Form.description.value,
             amount: Form.amount.value,
+            category: Form.category.value,
             date: Form.date.value,
         }
     },
 
     validadeFields() {
-        const { description, amount, date } = Form.getValues()
+        const { description, amount, category, date } = Form.getValues()
 
         if(
             description.trim() === "" ||
             amount.trim() === "" ||
+            category.trim() === "" ||
             date.trim() === ""
         ){
             throw new Error("Por favor, preencha todos os campos")
@@ -167,7 +175,7 @@ const Form = {
     },
 
     formatValues() {
-        let { description, amount, date } = Form.getValues()
+        let { description, amount, category, date } = Form.getValues()
 
         amount = Utils.formatAmount(amount)
 
@@ -176,6 +184,7 @@ const Form = {
         return {
             description,
             amount,
+            category,
             date
         }
 
@@ -184,6 +193,7 @@ const Form = {
     clearFields() {
         Form.description.value = ""
         Form.amount.value = ""
+        Form.category.value = ""
         Form.date.value = ""
     },
 

@@ -214,6 +214,13 @@ td.income {
 td.expense {
     color: #e92929;
 }
+
+.category img{
+    max-width: 100%;
+    padding-left: 20px;
+
+
+}
 /* MODAL ================================== */
 .modal-overlay {
     width: 100%;
@@ -259,7 +266,7 @@ td.expense {
     margin-top: 0;
 }
 
-input {
+input, select {
     border: none;
     border-radius: .2rem;
 
@@ -274,6 +281,7 @@ input {
 
 .input-group .help{
     opacity: 0.4;
+    padding-left: 2px;
 }
 
 .input-group.actions {
@@ -294,6 +302,21 @@ footer {
     color: var(--dark-blue);
 
     opacity: 0.6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+}
+footer p:first-child{
+    padding-bottom: 6px;
+    padding-right: 10px;
+}
+
+footer img{
+    
+    width: 20px;
+    height: 20px;
 }
 
 /* RESPONSIVE ================================== */
