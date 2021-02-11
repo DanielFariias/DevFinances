@@ -8,3 +8,5 @@
 
 
 readme in development...
+
+test the app: https://dev-finances.netlify.app
