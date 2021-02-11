@@ -1,1 +1,7 @@
-<h1> align="center"
+# Dev.Finance$
+
+<p align="center">
+  <a href="">
+    <img src="/assets/logo.svg">
+  </a>
+</p>
